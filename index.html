@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday! 🎂</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lightgallery.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <meta property="og:image" content="https://placehold.co/1200x630/FFB3CE/FFFFFF?text=A+Surprise+For+You">
+</head>
+<body>
+<canvas id="sakura-canvas"></canvas>
+
+<!-- Hero -->
+<header class="hero h-screen relative flex items-center justify-center text-white overflow-hidden">
+  <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-[-1]">
+    <source src="img/sa.mp4" type="video/mp4">
+  </video>
+  <div class="absolute inset-0 hero-tint"></div>
+  <div class="text-center z-10 p-4" data-aos="zoom-in" data-aos-duration="1200">
+    <p class="text-4xl mb-2 bounce">🎂</p>
+    <h1 class="text-4xl md:text-7xl font-anime drop-shadow-lg">Happy Birthday, <span class="js-name">Adiba</span>! 💖</h1>
+    <p class="mt-4 text-lg md:text-xl font-semibold">Another trip around the sun, and you're still the brightest thing in it ☀️</p>
+    <div id="countdown" class="pill mt-6 text-xl md:text-2xl font-semibold tracking-widest leading-relaxed"></div>
+    <div class="mt-6 flex gap-3 justify-center flex-wrap">
+      <button class="btn-cute js-confetti">🎉 Tap for a surprise</button>
+      <button class="btn-cute btn-alt js-shuffle">🎲 Shuffle photos</button>
+    </div>
+  </div>
+</header>
+
+<main class="container mx-auto p-6 md:p-12">
+
+  <!-- Letter -->
+  <section class="my-16 md:my-24 max-w-3xl mx-auto text-center" data-aos="fade-up">
+    <h2 class="text-4xl md:text-5xl font-anime text-sakura mb-8">A Little Letter For You 💌</h2>
+    <div class="letter text-left text-lg leading-relaxed space-y-4 p-8">
+      <p>Happy Birthday, <span class="js-name">Adiba</span>! 🌸</p>
+      <p>They say I don't say this enough, so here it is in writing: you are the hardest-working person I have ever met. Not the loudest kind — the quiet, stubborn, does-it-until-it's-done kind. You never made it look easy, you just never stopped.</p>
+      <p>And when I heard you got <strong>first place among the girls — BMHM HSC 2026, batch 2026</strong> — I swear my chest got bigger. The pride I felt was out of this world. That result didn't fall from the sky; it was you, every single night, choosing one more page, one more question, one more try. First place among the girls of 2026. Let that sink in slowly. 👑</p>
+      <p>So here's my wish for my fairytale: <strong>don't lose your childish spark.</strong> Keep the laugh, the silliness, the tiny joys — that's the part of you that makes everything warmer. But grow up too, all the way — into the <strong>CEO woman</strong> I already know you'll be. Soft heart, sharp mind, iron work ethic. You deserve every bit of it, and then some.</p>
+      <p>May your year be full of lilac dahlias, good digicam light, and coffee strong enough to wake the whole village. 💎✨</p>
+      <p class="text-right mt-8">With all my love,<br>YAR</p>
+    </div>
+  </section>
+
+  <!-- Timeline: images are filled randomly from Drive -->
+  <section class="my-16 md:my-24">
+    <h2 class="text-4xl md:text-5xl font-anime text-center mb-12" data-aos="fade-up">No Contact Break 🌸</h2>
+    <div class="space-y-16">
+      <div class="flex flex-col md:flex-row items-center gap-8" data-aos="fade-right">
+        <figure class="polaroid md:w-1/2"><img src="img/no-contact-break/break-no-cont.png" alt="The greatest notification in history" class="w-full"></figure>
+        <div class="text-center md:text-left">
+          <h3 class="text-2xl font-anime text-sakura">The greatest notification in history</h3>
+          <p class="mt-2 text-lg">One Like is all it takes — since that day, it was always going to be you 😌</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Hall of Fame -->
+  <section class="my-16 md:my-24">
+    <h2 class="text-4xl md:text-5xl font-anime text-center mb-12" data-aos="fade-up">Hall of Fame 👑</h2>
+    <div class="relative">
+      <button id="scroll-left-btn" class="arrow left-0" aria-label="Scroll left">‹</button>
+      <button id="scroll-right-btn" class="arrow right-0" aria-label="Scroll right">›</button>
+      <div id="hall-of-fame-scroller" class="flex overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide p-4 -mx-4">
+        <div class="flex gap-8" id="hof-track">
+          <figure class="hof-card" data-aos="zoom-in">
+            <img src="img/1.jpg" alt="Childhood ADIBA">
+            <h3 class="text-xl font-anime text-sakura">The Pilot: Childhood ADIBA 🌸</h3>
+          </figure>
+          <figure class="hof-card" data-aos="zoom-in" data-aos-delay="50">
+            <img src="img/2.jpg" alt="School Science Fair">
+            <h3 class="text-xl font-anime text-sakura">The School Science Fair</h3>
+          </figure>
+          <figure class="hof-card" data-aos="zoom-in" data-aos-delay="100">
+            <img src="img/3.jpg" alt="Baddie Scientist">
+            <h3 class="text-xl font-anime text-sakura">Baddie Scientist 🎓</h3>
+          </figure>
+          <figure class="hof-card" data-aos="zoom-in" data-aos-delay="150">
+            <img src="img/4.jpg" alt="Wasting Lab Reagents">
+            <h3 class="text-xl font-anime text-sakura">Wasting Lab Reagents 😍</h3>
+          </figure>
+          <figure class="hof-card" data-aos="zoom-in" data-aos-delay="200">
+            <img src="img/5.jpg" alt="With the gang">
+            <h3 class="text-xl font-anime text-sakura">With the gang 🚀</h3>
+          </figure>
+          <figure class="hof-card" data-aos="zoom-in" data-aos-delay="250">
+            <img src="img/6.jpg" alt="THE MRI">
+            <h3 class="text-xl font-anime text-sakura">THE MRI 📺</h3>
+          </figure>
+          <figure class="hof-card" data-aos="zoom-in" data-aos-delay="300">
+            <img src="img/7.jpg" alt="So Pretty">
+            <h3 class="text-xl font-anime text-sakura">So Pretty ✒️</h3>
+          </figure>
+          <figure class="hof-card" data-aos="zoom-in" data-aos-delay="350">
+            <img src="img/8.jpg" alt="Reaching the skies">
+            <h3 class="text-xl font-anime text-sakura">Reaching the skies ✨</h3>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery (built by script.js) -->
+  <section class="my-16 md:my-24">
+    <h2 class="text-4xl md:text-5xl font-anime text-center mb-4" data-aos="fade-up">The Y.V.A. Collection 📸</h2>
+    <p class="text-center text-lg mb-12">(Your Very-own Adventures)</p>
+    <div id="lightgallery" class="grid grid-cols-2 md:grid-cols-4 gap-4"></div>
+  </section>
+
+  <!-- Finale -->
+  <section class="my-16 md:my-24 text-center" data-aos="fade-up">
+    <h2 class="text-4xl md:text-5xl font-anime mb-6">Happy Birthday, <span class="js-name">Adiba</span>! 🎈</h2>
+    <button class="btn-cute js-confetti">🎊 One more time!</button>
+  </section>
+</main>
+
+<footer class="footer text-white p-8 text-center">
+  <p>Enjoy your day to the fullest 💕</p>
+  <p class="text-sm opacity-80 mt-2">Grow up to the CEO woman — but keep the spark. 🌸</p>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/lightgallery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
